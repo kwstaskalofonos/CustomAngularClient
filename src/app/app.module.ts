@@ -9,6 +9,7 @@ import { NavComponent } from './nav/nav.component';
 import { AdminNavComponent } from './admin-nav/admin-nav.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { LoginComponent } from './login/login.component';
+import { AuthService } from './_services/auth.service';
 
 @NgModule({
    declarations: [
@@ -24,7 +25,9 @@ import { LoginComponent } from './login/login.component';
       HttpClientModule,
       FormsModule
    ],
-   providers: [],
+   providers: [
+      AuthService
+   ],
    bootstrap: [
       AppComponent
    ]

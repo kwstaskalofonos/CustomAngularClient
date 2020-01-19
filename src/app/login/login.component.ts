@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../_services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,13 +10,21 @@ export class LoginComponent implements OnInit {
 
   model : any ={};
 
-  constructor() { }
+  constructor(private authService:AuthService) { }
 
   ngOnInit() {
   }
 
   login(){
-    console.log(this.model.email);
+    this.authService.login(this.model).subscribe(next=>{
+      console.log("Succefullu logged in");
+    },error=>{
+      console.log("An error occured");
+    });
   }
+
+  // login(){
+  //   this.authService.getValues();
+  // }
 
 }
