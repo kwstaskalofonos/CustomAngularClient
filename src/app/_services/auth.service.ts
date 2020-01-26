@@ -26,4 +26,9 @@ login(model:any){
   );
 }
 
+loggedIn(){
+  const token = localStorage.getItem('token');
+  return !!token;
+}
+
 }

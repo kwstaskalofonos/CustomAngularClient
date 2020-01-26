@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
 
 @Component({
@@ -9,6 +9,7 @@ import { AuthService } from '../_services/auth.service';
 export class LoginComponent implements OnInit {
 
   model : any ={};
+  @ViewChild('loginForm',{static: false}) formValues;
 
   constructor(private authService:AuthService) { }
 
@@ -21,10 +22,16 @@ export class LoginComponent implements OnInit {
     },error=>{
       console.log("An error occured");
     });
+    this.formValues.resetForm();
   }
 
-  // login(){
-  //   this.authService.getValues();
-  // }
+  loggedIn(){
+    return this.authService.loggedIn();
+  }
+
+  logout(){
+    localStorage.removeItem('token');
+    console.log("logged out");
+  }
 
 }

@@ -1,16 +1,27 @@
-<div class="container" id="home-container">
-  <div class="row justify-content-center">
-    <form #loginForm="ngForm" class="col-4" (ngSubmit)="login()">
-      <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" required [email]="true" [(ngModel)]="model.email">
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-      </div>
-      <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" name="password" required [(ngModel)]="model.password">
-      </div>
-      <button [disabled]="!loginForm.valid" type="submit" class="btn btn-primary">Login</button>
-    </form>
+
+<div *ngIf="loggedIn(); else home_container" class="main_wrap">
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-4">welcome my friend</h1>
+    </div>
   </div>
 </div>
+
+<ng-template #home_container>
+  <div class="container" id="home-container" class="main_wrap">
+    <div class="row justify-content-center">
+      <form #loginForm="ngForm" class="col-4" (ngSubmit)="login()">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" required [email]="true" [(ngModel)]="model.email">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" name="password" required [(ngModel)]="model.password">
+        </div>
+        <button [disabled]="!loginForm.valid" type="submit" class="btn btn-primary">Login</button>
+      </form>
+    </div>
+  </div>
+</ng-template>
