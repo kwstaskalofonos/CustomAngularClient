@@ -8,9 +8,10 @@
 </div>
 
 <ng-template #home_container>
-  <div class="container" id="home-container" class="main_wrap">
+  <div *ngIf="!registerMode" class="container main_wrap" id="home-container">
     <div class="row justify-content-center">
       <form #loginForm="ngForm" class="col-4" (ngSubmit)="login()">
+        <h1 class="h3 mb-3 font-weight-normal">Login</h1> 
         <div class="form-group">
           <label for="exampleInputEmail1">Email address</label>
           <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" required [email]="true" [(ngModel)]="model.email">
@@ -21,7 +22,11 @@
           <input type="password" class="form-control" id="exampleInputPassword1" name="password" required [(ngModel)]="model.password">
         </div>
         <button [disabled]="!loginForm.valid" type="submit" class="btn btn-primary">Login</button>
+        <a class="text-info" href="#" (click)="registerToggle()">Register</a>
       </form>
     </div>
-  </div>
+</div>
+<div *ngIf="registerMode">
+  <app-register></app-register>
+</div>
 </ng-template>

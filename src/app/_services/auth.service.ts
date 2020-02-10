@@ -7,26 +7,32 @@ import { map } from 'rxjs/operators';
 })
 export class AuthService {
 
-  baseUrl = "https://localhost:5001/api/auth/";
+  baseUrl = 'https://localhost:5001/api/auth/';
+
   values: any;
 
 constructor(private http: HttpClient) { 
   
 }
 
-login(model:any){
+login(model: any) {
   const headerOptions = new HttpHeaders({ 'Content-Type': 'application/json' });
-  return this.http.post(this.baseUrl+'login',model).pipe(
-    map((response: any)=>{
+  return this.http.post(this.baseUrl + 'login', model).pipe(
+    map((response: any) => {
         const user = response;
-        if(user){
+        if (user) {
           localStorage.setItem('token', user.token);
         }
     })
   );
 }
 
-loggedIn(){
+register(model: any) {
+  const headerOptions = new HttpHeaders({ 'Content-Type': 'application/json' });
+  return this.http.post(this.baseUrl + 'register', model);
+}
+
+loggedIn() {
   const token = localStorage.getItem('token');
   return !!token;
 }
