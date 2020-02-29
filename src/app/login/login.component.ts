@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
+import { AlertifyService } from '../_services/alertify.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
 
   registerMode = false;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private alertify: AlertifyService) { }
 
   ngOnInit() {
   }
@@ -21,20 +22,15 @@ export class LoginComponent implements OnInit {
   login() {
     console.log('login function');
     this.authService.login(this.model).subscribe(next => {
-      console.log('Succefullu logged in');
+      this.alertify.success('Succefully logged in')
     }, error => {
-      console.log('An error occured');
+      this.alertify.error(error);
     });
     this.formValues.resetForm();
   }
 
   loggedIn() {
     return this.authService.loggedIn();
-  }
-
-  logout() {
-    localStorage.removeItem('token');
-    console.log('logged out');
   }
 
   registerToggle() {

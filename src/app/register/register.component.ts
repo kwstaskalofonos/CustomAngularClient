@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { AuthService } from '../_services/auth.service';
+import { AlertifyService } from '../_services/alertify.service';
 
 @Component({
   selector: 'app-register',
@@ -12,19 +13,26 @@ export class RegisterComponent implements OnInit {
   model: any = {};
   @ViewChild('registerForm', {static: false}) formValues;
 
-  constructor(private authService: AuthService) { }
+  registerMode = true;
+
+  constructor(private authService: AuthService, private alertify: AlertifyService) { }
 
   ngOnInit() {
   }
 
   register() {
-    console.log('register');
+    
     this.authService.register(this.model).subscribe(next => {
-      console.log('Succefully registered');
+      this.alertify.success('Succefully registered');
     }, error => {
-      console.log('An error occured');
+      this.alertify.error(error);
     });
+    
     this.formValues.resetForm();
+  }
+
+  registerToggle() {
+    this.registerMode = !this.registerMode;
   }
 
 

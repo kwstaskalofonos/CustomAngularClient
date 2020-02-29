@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
+import { AlertifyService } from '../_services/alertify.service';
 
 @Component({
   selector: 'app-nav',
@@ -8,18 +9,33 @@ import { AuthService } from '../_services/auth.service';
 })
 export class NavComponent implements OnInit {
 
-  constructor(private authService:AuthService) { }
+  LoginMode = false;
+  @Output() enterLoginMode = new EventEmitter();
+
+  constructor(private authService: AuthService, private alertify: AlertifyService) { }
 
   ngOnInit() {
   }
 
-  loggedIn(){
+  loggedIn() {
     return this.authService.loggedIn();
   }
 
-  logout(){
+  logout() {
     localStorage.removeItem('token');
-    console.log("logged out");
+    this.alertify.message('logged out');
+  }
+
+  loginToggle() {
+    this.LoginMode = !this.LoginMode;
+  }
+
+  enterLogin() {
+    this.enterLoginMode.emit(true);
+  }
+
+  quitLogin() {
+    this.enterLoginMode.emit(false);
   }
 
 }

@@ -12,6 +12,8 @@ import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { LoginComponent } from './login/login.component';
 import { AuthService } from './_services/auth.service';
 import { RegisterComponent } from './register/register.component';
+import { HomeComponent } from './home/home.component';
+import { ErrorInterceptorProvider } from './_services/error.interceptor';
 
 @NgModule({
    declarations: [
@@ -21,7 +23,8 @@ import { RegisterComponent } from './register/register.component';
       AdminNavComponent,
       AdminPanelComponent,
       LoginComponent,
-      RegisterComponent
+      RegisterComponent,
+      HomeComponent
    ],
    imports: [
       BrowserModule,
@@ -30,7 +33,8 @@ import { RegisterComponent } from './register/register.component';
       FormsModule
    ],
    providers: [
-      AuthService
+      AuthService,
+      ErrorInterceptorProvider
    ],
    bootstrap: [
       AppComponent
