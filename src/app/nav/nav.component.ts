@@ -22,7 +22,7 @@ export class NavComponent implements OnInit {
   }
 
   logout() {
-    localStorage.removeItem('token');
+    this.authService.logout();
     this.alertify.message('logged out');
   }
 
@@ -30,12 +30,8 @@ export class NavComponent implements OnInit {
     this.LoginMode = !this.LoginMode;
   }
 
-  enterLogin() {
-    this.enterLoginMode.emit(true);
-  }
-
-  quitLogin() {
-    this.enterLoginMode.emit(false);
+  getUnique_name() {
+    return this.authService.decodedToken.unique_name;
   }
 
 }

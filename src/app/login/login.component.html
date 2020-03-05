@@ -2,7 +2,7 @@
 <div *ngIf="loggedIn(); else home_container" class="main_wrap">
   <div class="jumbotron">
     <div class="container">
-      <h1 class="display-4">welcome my friend</h1>
+      <h1 class="display-4">welcome {{getUnique_name() | titlecase}}</h1>
     </div>
   </div>
 </div>

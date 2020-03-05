@@ -17,16 +17,17 @@ export class LoginComponent implements OnInit {
   constructor(private authService: AuthService, private alertify: AlertifyService) { }
 
   ngOnInit() {
+    //console.log(this.loggedIn());
   }
 
   login() {
-    console.log('login function');
+    
     this.authService.login(this.model).subscribe(next => {
-      this.alertify.success('Succefully logged in')
+      this.alertify.success('Succefully logged in');
     }, error => {
       this.alertify.error(error);
     });
-    this.formValues.resetForm();
+    this.formValues.resetForm();  
   }
 
   loggedIn() {
@@ -35,6 +36,10 @@ export class LoginComponent implements OnInit {
 
   registerToggle() {
     this.registerMode = !this.registerMode;
+  }
+
+  getUnique_name(){
+    return this.authService.decodedToken.unique_name;
   }
 
 
