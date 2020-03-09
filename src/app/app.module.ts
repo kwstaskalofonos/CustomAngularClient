@@ -16,6 +16,8 @@ import { HomeComponent } from './home/home.component';
 import { ErrorInterceptorProvider } from './_services/error.interceptor';
 import { BsDropdownModule } from 'ngx-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MessagesComponent } from './messages/messages.component';
+import { FriendsComponent } from './friends/friends.component';
 
 @NgModule({
    declarations: [
@@ -26,7 +28,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       AdminPanelComponent,
       LoginComponent,
       RegisterComponent,
-      HomeComponent
+      HomeComponent,
+      MessagesComponent,
+      FriendsComponent
    ],
    imports: [
       BrowserModule,

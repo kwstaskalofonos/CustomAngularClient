@@ -13,8 +13,6 @@ export class RegisterComponent implements OnInit {
   model: any = {};
   @ViewChild('registerForm', {static: false}) formValues;
 
-  registerMode = true;
-
   constructor(private authService: AuthService, private alertify: AlertifyService) { }
 
   ngOnInit() {
@@ -29,10 +27,6 @@ export class RegisterComponent implements OnInit {
     });
     
     this.formValues.resetForm();
-  }
-
-  registerToggle() {
-    this.registerMode = !this.registerMode;
   }
 
 

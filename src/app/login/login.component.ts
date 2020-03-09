@@ -12,8 +12,6 @@ export class LoginComponent implements OnInit {
   model: any = {};
   @ViewChild('loginForm', {static: false}) formValues;
 
-  registerMode = false;
-
   constructor(private authService: AuthService, private alertify: AlertifyService) { }
 
   ngOnInit() {
@@ -32,10 +30,6 @@ export class LoginComponent implements OnInit {
 
   loggedIn() {
     return this.authService.loggedIn();
-  }
-
-  registerToggle() {
-    this.registerMode = !this.registerMode;
   }
 
   getUnique_name(){

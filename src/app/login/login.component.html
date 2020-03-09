@@ -8,7 +8,7 @@
 </div>
 
 <ng-template #home_container>
-  <div *ngIf="!registerMode" class="container main_wrap" id="home-container">
+  <div class="container main_wrap" id="home-container">
     <div class="row justify-content-center">
       <form #loginForm="ngForm" class="col-4" (ngSubmit)="login()">
         <h1 class="h3 mb-3 font-weight-normal">Login</h1> 
@@ -22,9 +22,7 @@
           <input type="password" class="form-control" id="exampleInputPassword1" name="password" required [(ngModel)]="model.password">
         </div>
         <button [disabled]="!loginForm.valid" type="submit" class="btn btn-primary">Login</button>
-        <a class="text-info" href="#" (click)="registerToggle()">Register</a>
       </form>
     </div>
-</div>
-  <app-register *ngIf="registerMode"></app-register>
+    </div>
 </ng-template>

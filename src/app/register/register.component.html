@@ -1,4 +1,4 @@
-<div *ngIf="registerMode" class="container main_wrap" id="home-container">
+<div class="container main_wrap" id="home-container">
   <div class="row justify-content-center">
     <form #registerForm="ngForm" class="col-4" (ngSubmit)="register()">
       <h1 class="h3 mb-3 font-weight-normal">Sign Up</h1>
@@ -16,10 +16,8 @@
         <input id="exampleInputPasswordConfirm2" type="password" class="form-control" name="passwordConfirm"  [(ngModel)]="model.passwordConfirm">
       </div>
       <button [disabled]="!registerForm.valid" type="submit" class="btn btn-primary">Register</button>
-      <a href="#" class="text-danger" (click)="registerToggle()">Cancel</a>
     </form>
     <div class="mb-3">
     </div>
   </div>
 </div>
-<app-login *ngIf="!registerMode"></app-login>
