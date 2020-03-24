@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { MessagesComponent } from './messages/messages.component';
 import { FriendsComponent } from './friends/friends.component';
 import { HomeComponent } from './home/home.component';
+import { UsersComponent } from './Users/Users.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
     children: [
       {path: 'messages', component: MessagesComponent},
       {path: 'friends', component: FriendsComponent},
+      {path: 'users', component: UsersComponent},
     ]
   },
   {path: '**', redirectTo: '', pathMatch: 'full'}

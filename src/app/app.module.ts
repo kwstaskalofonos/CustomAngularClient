@@ -18,6 +18,7 @@ import { BsDropdownModule } from 'ngx-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MessagesComponent } from './messages/messages.component';
 import { FriendsComponent } from './friends/friends.component';
+import { UsersComponent } from './Users/Users.component';
 
 @NgModule({
    declarations: [
@@ -30,7 +31,8 @@ import { FriendsComponent } from './friends/friends.component';
       RegisterComponent,
       HomeComponent,
       MessagesComponent,
-      FriendsComponent
+      FriendsComponent,
+      UsersComponent
    ],
    imports: [
       BrowserModule,
