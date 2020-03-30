@@ -23,6 +23,10 @@ import { UsersComponent } from './Users/Users.component';
 import { UsercardComponent } from './Users/usercard/usercard.component'
 import { JwtModule } from '@auth0/angular-jwt';
 import { UserDetailedComponent } from './Users/UserDetailed/UserDetailed.component';
+import { AlertifyService } from './_services/alertify.service';
+import { UserService } from './_services/User.service';
+import { AuthGuard } from './_guards/auth.guard';
+import { UserDetailResolver } from './_resolvers/user-detail.resolver';
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -62,7 +66,11 @@ export function tokenGetter() {
    ],
    providers: [
       AuthService,
-      ErrorInterceptorProvider
+      ErrorInterceptorProvider,
+      AlertifyService,
+      UserService,
+      AuthGuard,
+      UserDetailResolver
    ],
    bootstrap: [
       AppComponent

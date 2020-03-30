@@ -9,6 +9,7 @@ import { FriendsComponent } from './friends/friends.component';
 import { HomeComponent } from './home/home.component';
 import { UsersComponent } from './Users/Users.component';
 import { UserDetailedComponent } from './Users/UserDetailed/UserDetailed.component';
+import { UserDetailResolver } from './_resolvers/user-detail.resolver';
 
 
 const routes: Routes = [
@@ -23,7 +24,7 @@ const routes: Routes = [
       {path: 'messages', component: MessagesComponent},
       {path: 'friends', component: FriendsComponent},
       {path: 'users', component: UsersComponent},
-      {path: 'users/:id', component: UserDetailedComponent}
+      {path: 'users/:id', component: UserDetailedComponent, resolve: {user: UserDetailResolver}}
     ]
   },
   {path: '**', redirectTo: '', pathMatch: 'full'}

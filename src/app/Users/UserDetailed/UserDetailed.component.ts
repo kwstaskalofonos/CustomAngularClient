@@ -20,15 +20,10 @@ export class UserDetailedComponent implements OnInit {
     private customMapper: CustomMapperService) { }
 
   ngOnInit() {
-    this.loadUser();
-  }
-
-  loadUser(){
-    this.userService.getUser(+this.route.snapshot.params['id']).subscribe((user: User)=>{
-      this.user = this.customMapper.SingleProfileMapper(user);
-    },error=>{
-      this.alertify.error(error);
-    });
+    this.route.data.subscribe(data => {
+      this.user = data['user'];
+      this.user = this.customMapper.SingleProfileMapper(this.user);
+    })
   }
 
 }
