@@ -24,7 +24,6 @@ export class UsersComponent implements OnInit {
 
   loadUsers() {
     this.userService.getUsers().subscribe((users: User[])=>{
-      console.log(users);
       this.users = this.customMapper.ProfileMapper(users);
     }, error => {
       this.alertify.error(error);

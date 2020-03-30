@@ -28,4 +28,21 @@ ProfileMapper(users: User[]): User[]{
   return users;
 }
 
+SingleProfileMapper(user: User): User{
+    user.ProfilesListDto = new Profile(
+      user["profile"]["firstName"],
+      user["profile"]["surName"],
+      user["profile"]["dateOfBirth"],
+      user["profile"]["gender"],
+      user["profile"]["age"],
+      user["profile"]["city"],
+      user["profile"]["postalCode"],
+      user["profile"]["phoneNumber"]
+    );
+    user.ProfilesListDto.PhotoListDto = new Photo(user["profile"]["profilePhoto"]["url"]);
+    delete user["profile"];
+  
+  return user;
+}
+
 }
