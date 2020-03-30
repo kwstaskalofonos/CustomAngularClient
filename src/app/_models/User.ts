@@ -2,11 +2,13 @@
 
 
 export class User {
+    id: number;
     email: string;
     userLevel: number;
     ProfilesListDto: Profile;
 
-    constructor(email: string, userLevel: number, ProfilesListDto: any){
+    constructor(id: number, email: string, userLevel: number, ProfilesListDto: any){
+        this.id = id;
         this.email = email;
         this.userLevel = userLevel;
         this.ProfilesListDto = new Profile(

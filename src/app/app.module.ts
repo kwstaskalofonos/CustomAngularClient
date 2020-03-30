@@ -19,7 +19,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MessagesComponent } from './messages/messages.component';
 import { FriendsComponent } from './friends/friends.component';
 import { UsersComponent } from './Users/Users.component';
+import { UsercardComponent } from './Users/usercard/usercard.component'
 import { JwtModule } from '@auth0/angular-jwt';
+import { UserDetailedComponent } from './Users/UserDetailed/UserDetailed.component';
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -37,7 +39,9 @@ export function tokenGetter() {
       HomeComponent,
       MessagesComponent,
       FriendsComponent,
-      UsersComponent
+      UsersComponent,
+      UsercardComponent,
+      UserDetailedComponent
    ],
    imports: [
       BrowserModule,

@@ -4,6 +4,7 @@ import { User, Profile } from '../_models/User';
 import { AlertifyService } from '../_services/alertify.service';
 import { Observable } from 'rxjs';
 import { CustomMapperService } from '../_mappers/CustomMapper.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-Users',
@@ -23,7 +24,7 @@ export class UsersComponent implements OnInit {
 
   loadUsers() {
     this.userService.getUsers().subscribe((users: User[])=>{
-      //console.log(users);
+      console.log(users);
       this.users = this.customMapper.ProfileMapper(users);
     }, error => {
       this.alertify.error(error);
